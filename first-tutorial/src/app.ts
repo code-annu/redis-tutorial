@@ -4,6 +4,7 @@ import redisClient from "./core/redis.client";
 import mongoose from "mongoose";
 import bannerRouter from "./modules/banner";
 import otpLoginRouter from "./modules/login-otp/login-otp.router";
+import userRouter from "./modules/user/user.router";
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.get("/health", async (_req, res) => {
 
 app.use("/banner", bannerRouter);
 app.use("/login", otpLoginRouter);
+app.use("/user", userRouter);
 
 app.listen(ENV.PORT, () => {
   console.log(`Server is running at: http://localhost:${ENV.PORT}`);
